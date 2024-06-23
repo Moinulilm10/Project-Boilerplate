@@ -11,10 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@middy/core": "^5.4.1",
     "aws-sdk": "^2.1646.0",
     "dotenv": "^16.4.5",
     "koa": "^2.15.3",
     "koa-body": "^6.0.1",
-    "koa-bodyparser": "^4.4.1"
+    "koa-bodyparser": "^4.4.1",
+    "serverless-offline": "^13.6.0"
   }
 }
