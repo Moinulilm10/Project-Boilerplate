@@ -1,0 +1,47 @@
+service: project-boilerplate
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ${env:AWS_REGION}
+  environment:
+    DYNAMODB_TABLE: Contact
+    AWS_ENDPOINT: ${env:AWS_ENDPOINT}
+    AWS_API_VERSION: ${env:AWS_API_VERSION}
+
+functions:
+  getAllUsers:
+    handler: handler.getAllUsersHandler
+    events:
+      - http:
+          path: users
+          method: get
+
+  createUser:
+    handler: handler.createUserHandler
+    events:
+      - http:
+          path: users
+          method: post
+
+  updateUser:
+    handler: handler.updateUserHandler
+    events:
+      - http:
+          path: users/{id}
+          method: put
+
+  deleteUser:
+    handler: handler.deleteUserHandler
+    events:
+      - http:
+          path: users/{id}
+          method: delete
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  dotenv:
+    path: .env

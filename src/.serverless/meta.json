@@ -1,0 +1,107 @@
+{
+  "D:\\CDP-07\\backend\\Project-Boilerplate\\src": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.5",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "servicePath": "D:\\CDP-07\\backend\\Project-Boilerplate\\src",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "project-boilerplate",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "us-east-1",
+        "environment": {
+          "DYNAMODB_TABLE": "Contact",
+          "AWS_ENDPOINT": "${env:AWS_ENDPOINT}",
+          "AWS_API_VERSION": "${env:AWS_API_VERSION}"
+        }
+      },
+      "functions": {
+        "getAllUsers": {
+          "handler": "handler.getAllUsersHandler",
+          "events": [
+            {
+              "http": {
+                "path": "users",
+                "method": "get"
+              }
+            }
+          ]
+        },
+        "createUser": {
+          "handler": "handler.createUserHandler",
+          "events": [
+            {
+              "http": {
+                "path": "users",
+                "method": "post"
+              }
+            }
+          ]
+        },
+        "updateUser": {
+          "handler": "handler.updateUserHandler",
+          "events": [
+            {
+              "http": {
+                "path": "users/{id}",
+                "method": "put"
+              }
+            }
+          ]
+        },
+        "deleteUser": {
+          "handler": "handler.deleteUserHandler",
+          "events": [
+            {
+              "http": {
+                "path": "users/{id}",
+                "method": "delete"
+              }
+            }
+          ]
+        }
+      },
+      "plugins": ["serverless-offline", "serverless-dotenv-plugin"],
+      "custom": {
+        "dotenv": {
+          "path": ".env"
+        }
+      }
+    },
+    "serviceRawFile": "service: project-boilerplate\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: ${env:AWS_REGION}\r\n  environment:\r\n    DYNAMODB_TABLE: Contact\r\n    AWS_ENDPOINT: ${env:AWS_ENDPOINT}\r\n    AWS_API_VERSION: ${env:AWS_API_VERSION}\r\n\r\nfunctions:\r\n  getAllUsers:\r\n    handler: handler.getAllUsersHandler\r\n    events:\r\n      - http:\r\n          path: users\r\n          method: get\r\n\r\n  createUser:\r\n    handler: handler.createUserHandler\r\n    events:\r\n      - http:\r\n          path: users\r\n          method: post\r\n\r\n  updateUser:\r\n    handler: handler.updateUserHandler\r\n    events:\r\n      - http:\r\n          path: users/{id}\r\n          method: put\r\n\r\n  deleteUser:\r\n    handler: handler.deleteUserHandler\r\n    events:\r\n      - http:\r\n          path: users/{id}\r\n          method: delete\r\n\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-dotenv-plugin\r\n\r\ncustom:\r\n  dotenv:\r\n    path: .env\r\n",
+    "command": ["offline"],
+    "options": {},
+    "error": {
+      "message": "AWS credentials appear to be invalid. Run \"serverless\" to set up AWS credentials, or learn more in our docs: http://slss.io/aws-creds-setup. Original error from AWS: \"The security token included in the request is invalid.\"",
+      "code": "AWS_CREDENTIALS_MISSING"
+    },
+    "machineId": "2d134ba5b02a6b8aa7ce2060deb66f40",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "38efa9a8-b83b-4840-8ff6-00bffa05f59e",
+    "orgName": "moinulilm10",
+    "userId": "1H4X7n2FWD3JwKnyND",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "moinulilm10",
+    "subscription": null,
+    "userEmail": "moinulilm10@gmail.com",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
